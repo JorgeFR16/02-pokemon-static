@@ -1,4 +1,4 @@
-## App de los primeros 150 POKEMONS
+## App de los primeros 151 POKEMONS
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

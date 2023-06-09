@@ -23,6 +23,7 @@ export const NavBar = () => {
             alt="icono de la app"
             width={70}
             height={70}
+            priority
           />
 
           <NextLink href='/' passHref legacyBehavior>

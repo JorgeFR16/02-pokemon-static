@@ -124,10 +124,10 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-13.4.4.tgz#faab69239f8a9d0be7cd473e65f5a07735ef7b0e"
   integrity sha512-AHRITu/CrlQ+qzoqQtEMfaTu7GHaQ6bziQln/pVWpOYC1wU+Mq6VQQFlsDtMCnDztPZtppAXdvvbNS7pcfRzlw==
 
-"@nextui-org/react@1.0.2-beta.2":
-  version "1.0.2-beta.2"
-  resolved "https://registry.yarnpkg.com/@nextui-org/react/-/react-1.0.2-beta.2.tgz#76664d48b9c567ff84f328d3531cd1a98a7a51f1"
-  integrity sha512-2wlBQ1rhZu2ofgJ2kNO7b3RXn//+ozLlX18cnOx3VGzhCqM0onv9FPDxlTiruTAMQx1/BFYHr6fRyeD/G1e3Yw==
+"@nextui-org/react@1.0.2-beta.3":
+  version "1.0.2-beta.3"
+  resolved "https://registry.yarnpkg.com/@nextui-org/react/-/react-1.0.2-beta.3.tgz#d224654aa54a9b316922fdfacdd79d8ffa1d9797"
+  integrity sha512-YkAXBc4f3Qfzf409BFZi9MAKj0lWArTb1L2ZASAKoBQKsxtRbVTko18Losjsjun/WwK4X8RiR9e8XlzYPm2RZA==
   dependencies:
     "@babel/runtime" "7.9.6"
     "@stitches/react" "1.2.6"

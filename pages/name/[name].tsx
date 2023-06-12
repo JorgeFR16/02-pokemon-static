@@ -7,7 +7,7 @@ import confetti from 'canvas-confetti';
 
 import { Layout } from "../../components/layouts";
 import { pokeApi } from "@/api";
-import { Pokemon } from "@/interfaces";
+import { Pokemon, PokemonListResponse } from "@/interfaces";
 import { getPokemonInfo, localFavorites } from "@/utils";
 
  interface Props {
@@ -16,7 +16,11 @@ import { getPokemonInfo, localFavorites } from "@/utils";
 
 
 
-const PokemonPage: NextPage<Props> = ({ pokemon }) => {
+const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
+
+    // // Este console log es para poder ver que se redujo la cantidad de informacion que se extrae desde la api (solo tenemos la informacion que vamos a utilizar)
+    // console.log({ pokemon });
+    
 
 
     const [isInFavorites, setIsInFavorites] = useState( localFavorites.existInFavorites( pokemon.id ) );
@@ -130,7 +134,9 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
 // Los getsStaticPaths tiene que tener la data que son los parametros que tienen que mandarle a getStaticProps
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
-    const pokemons151 = [...Array(151)].map( (value, index) => `${ index + 1}` );    
+    const { data } = await pokeApi.get<PokemonListResponse>('/pokemon?limit=151');
+
+    const pokemonNames: string[] = data.results.map( pokemon => pokemon.name )
 
     return {
         // Esto es como se podria hacer manualmente las rutas staticas
@@ -147,8 +153,8 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
         // ],
         //fallback:false
 
-        paths: pokemons151.map( id => ({
-            params: { id }
+        paths: pokemonNames.map( name => ({
+            params: { name }
         })),
         fallback: false
     }
@@ -159,20 +165,45 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
       
   
-    const { id } = params as { id: string };
-
-
+    const { name } = params as { name: string };
 
   
     return {
       props: {
-        pokemon: await getPokemonInfo( id )
+        pokemon: await getPokemonInfo( name )
       }
     }
+
+
+
+    // Esto es como se ve de otra forma la definicion de los datos que se quieren extraer de data, pero se hace mas codigo
+
+    // const { name } = params as { name: string };
+
+    // const { data } = await pokeApi.get<Pokemon>(`/pokemon/${ name }`);
+
+    // // const pokemon = {
+    // //     id: data.id,
+    // //     name: data.name,
+    // //     sprites: data.sprites
+    // // }
+
+  
+    // return {
+    //   props: {
+    //     pokemon: {
+    //         id: data.id,
+    //         name: data.name,
+    //         sprites: data.sprites
+    //     }
+    //   }
+    // }
+
+
   }
 
 
 
 
-export default PokemonPage;
+export default PokemonByNamePage;
  

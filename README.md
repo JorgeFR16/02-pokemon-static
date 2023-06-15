@@ -1,4 +1,10 @@
-## App de los primeros 151 POKEMONS
+## App que muestra los primeros 151 POKEMONS pero gracias al ISG (Incremental Static Generation) se pueden buscar todos los pokemons que existen ya sea por Id o Nombre al final de la URL.
+
+Ejemplo de como buscar por Nombre:(https://pokemon-static-pi-seven.vercel.app/name/charmeleon).
+
+Ejemplo de como buscar por Id:(https://pokemon-static-pi-seven.vercel.app/pokemon/7)
+
+![Screenshot](./public/img/ScreenShotPokemonApp.png)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
